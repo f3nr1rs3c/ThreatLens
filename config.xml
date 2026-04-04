@@ -1,0 +1,82 @@
+<!-- Made by Doğukan İSPİRLİ -->
+
+<Sysmon schemaversion="4.90">
+
+  <HashAlgorithms>sha256,md5</HashAlgorithms>
+  <CheckRevocation>true</CheckRevocation>
+
+  <EventFiltering>
+
+    <!-- ===================== -->
+    <!-- PROCESS CREATION -->
+    <!-- ===================== -->
+    <ProcessCreate onmatch="include">
+      <Image condition="contains">powershell.exe</Image>
+      <Image condition="contains">cmd.exe</Image>
+      <Image condition="contains">rundll32.exe</Image>
+      <Image condition="contains">mshta.exe</Image>
+      <Image condition="contains">wscript.exe</Image>
+      <Image condition="contains">cscript.exe</Image>
+      <Image condition="contains">regsvr32.exe</Image>
+      <Image condition="contains">certutil.exe</Image>
+      <Image condition="contains">bitsadmin.exe</Image>
+
+      <CommandLine condition="contains">-enc</CommandLine>
+      <CommandLine condition="contains">DownloadString</CommandLine>
+      <CommandLine condition="contains">Invoke-Expression</CommandLine>
+      <CommandLine condition="contains">IEX</CommandLine>
+    </ProcessCreate>
+
+    <!-- ===================== -->
+    <!-- NETWORK CONNECTION -->
+    <!-- ===================== -->
+    <NetworkConnect onmatch="include">
+      <Image condition="contains">powershell.exe</Image>
+      <Image condition="contains">cmd.exe</Image>
+      <Image condition="contains">rundll32.exe</Image>
+      <Image condition="contains">mshta.exe</Image>
+    </NetworkConnect>
+
+    <!-- ===================== -->
+    <!-- FILE CREATION -->
+    <!-- ===================== -->
+    <FileCreate onmatch="include">
+      <TargetFilename condition="contains">AppData</TargetFilename>
+      <TargetFilename condition="contains">Temp</TargetFilename>
+      <TargetFilename condition="end with">.exe</TargetFilename>
+      <TargetFilename condition="end with">.dll</TargetFilename>
+    </FileCreate>
+
+    <!-- ===================== -->
+    <!-- REGISTRY (PERSISTENCE) -->
+    <!-- ===================== -->
+    <RegistryEvent onmatch="include">
+      <TargetObject condition="contains">Run</TargetObject>
+      <TargetObject condition="contains">RunOnce</TargetObject>
+      <TargetObject condition="contains">Policies</TargetObject>
+      <TargetObject condition="contains">Winlogon</TargetObject>
+    </RegistryEvent>
+
+    <!-- ===================== -->
+    <!-- PROCESS INJECTION -->
+    <!-- ===================== -->
+    <ProcessAccess onmatch="include">
+      <GrantedAccess condition="contains">0x1F</GrantedAccess>
+      <GrantedAccess condition="contains">0x1FFFFF</GrantedAccess>
+    </ProcessAccess>
+
+    <!-- ===================== -->
+    <!-- DRIVER LOAD -->
+    <!-- ===================== -->
+    <DriverLoad onmatch="include" />
+
+    <!-- ===================== -->
+    <!-- IMAGE LOAD (DLL) -->
+    <!-- ===================== -->
+    <ImageLoad onmatch="include">
+      <ImageLoaded condition="end with">.dll</ImageLoaded>
+    </ImageLoad>
+
+  </EventFiltering>
+
+</Sysmon>
