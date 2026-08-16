@@ -235,7 +235,7 @@ Kendi ortamınıza göre uyarlarken dikkat edilmesi önerilen noktalar:
 
 Katkılarınızı memnuniyetle karşılarız:
 
-1. Bu depoyu forklayabilirsiniz
+1. Bu repoyu forklayabilirsiniz
 2. Yeni bir dal oluşturun. (`git checkout -b kural/yeni-tespit`)
 3. Değişikliklerinizi commit edin. (`git commit -m "Yeni tespit kuralı eklendi"`)
 4. Dalınızı push'layın (`git push origin kural/yeni-tespit`)
