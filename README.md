@@ -18,7 +18,7 @@
 
 ## 📋 Genel Bakış
 
-Bu depo, [Sysmon (System Monitor)](https://learn.microsoft.com/sysinternals/downloads/sysmon) için
+Bu repo, [Sysmon (System Monitor)](https://learn.microsoft.com/sysinternals/downloads/sysmon) için
 şema sürümü **4.90** ile yazılmış, üretim ortamlarında kullanılabilecek düzeyde ayarlanmış bir
 yapılandırma dosyası (`config.xml`) içerir.
 
@@ -65,8 +65,8 @@ Expand-Archive Sysmon.zip -DestinationPath .\Sysmon
 ### 2. Bu depoyu klonlayın
 
 ```bash
-git clone https://github.com/<kullanici-adi>/<repo-adi>.git
-cd <repo-adi>
+git clone https://github.com/f3nr1rs3c/ThreatLens.git
+cd ThreatLens
 ```
 
 ### 3. Sysmon'u yapılandırmayla birlikte kurun
