@@ -1,6 +1,5 @@
-# 🛡️ Sysmon Threat Detection Configuration
+  # 🛡️ Sysmon Threat Detection Configuration
 
-<div align="center">
 
 ![Sysmon](https://img.shields.io/badge/Sysmon-4.90-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows11&logoColor=white)
